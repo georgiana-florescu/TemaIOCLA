@@ -1,0 +1,30 @@
+    Pentru implementarea comenzilor am folosit urmatoarele functii ajutatoare:
+findFile, findDir, freeFile, freeDir. Functiile findDir si findFile returneaza
+1 daca exista un director/fisier cu numele name, respectiv 0 daca nu exista.
+Parametrul prev din antetul functiilor va contine adresa elementului ce precede
+fisierul/directorul cautat, eventual adresa ultimului element daca in lista nu
+exista nicio structura cu numele name. (pentru a nu parcurge de mai multe ori
+aceeasi lista)
+    Functia touch verifica daca in directorul parinte exista un fisier cu numele
+name. Creeaza un nou fisier si il adauga la finalul listei de fisiere. Functia
+mkdir functioneaza pe acelasi principiu, sunt realizate insa doua verificari:
+daca exista un fisier/director cu noul nume.
+    Functia ls parcurge si afiseaza fiecare element din lista de directoare, si
+ulterior cea de fisiere.
+    Functia rm verifica existenta fisierului, in caz contrar afiseaza un mesaj
+corespunzator, apoi elimina si dezaloca memoria ocupata de acesta. Asemanator
+acestei functii, rmdir elimina directorul cu numele name din lista de directoare
+copil si apeleaza functia recursiva freeDir care se ocupa de stergerea efectiva
+a acestui director.
+    Functia cd modifica directorul la care pointeaza current_dir, prin modificarea
+continutului adresei pointerului current_dir. Daca name este ".." atunci noua adresa
+va fi cea a directorului parinte, respectiv aceeasi daca acesta este chiar radacina
+sistemului de fisiere, altfel aceasta va fi adresa directorului copil cu numele
+primit ca argument. (adresa la care pointeaza **target)
+    Functia pwd incepe prin calcularea lungimii stringului pe care urmeaza sa il
+returneze. Pentru ca incepe de la directorul copil catre directorul parinte, am
+folosit inca o variabila aux pentru a inversa ordinea caii.
+    Functia mv verifica daca exista fisierul/directorul oldname si daca nu exista
+fisierul/directorul newname. Daca cele doua conditii sunt satisfacute, functia
+elimina elementul din lista de fisiere/directoare si il adauga la final sub
+numele dat ca al doilea argument comenzii.
